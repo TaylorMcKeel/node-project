@@ -39,11 +39,11 @@ app.use(bodyParser.json()) //allows us to convert json data into a readble objec
 app.use(errorHandler) //error handler for all routes. Order does not matter in relation to other middleware
 
 const limiter = rateLimit({ //adds rate limiting; takes two parameters; window time in ms, max api hit in that time frame
-  windowMs: 10 * 60 *1000, //10 min
+  windowMs: 10 * 60 * 1000, //10 min
   max: 100 //100 api calls in that 10 min interval
 })
 
-app.use(limiter()) //uses the created limiter
+app.use(limiter) //uses the created limiter
 
 app.use(cors({ //gives access to server from different site endpoints; whitelist everyone
   origin: '*', //anyone can have access can also be an array of websites
